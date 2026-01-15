@@ -1,207 +1,150 @@
 import { GoogleGenAI } from "@google/genai";
 
-// 1. Initialize Lenis (Smooth Scroll)
+// 1. Initialize Lenis (Smooth Scrolling)
 const lenis = new Lenis({
     duration: 1.2,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     smooth: true
 });
+
 function raf(time) {
     lenis.raf(time);
     requestAnimationFrame(raf);
 }
 requestAnimationFrame(raf);
 
-// 2. Initialize GSAP
+// 2. Initialize GSAP & Register Plugins
 gsap.registerPlugin(ScrollTrigger, TextPlugin, ScrollToPlugin);
-gsap.ticker.add((time) => lenis.raf(time * 1000));
 
-// --- Global Background Color Manager ---
-const sections = document.querySelectorAll('[data-color]');
-sections.forEach((section, i) => {
-    const color = section.getAttribute('data-color');
-    ScrollTrigger.create({
-        trigger: section,
-        start: "top 60%",
-        end: "bottom 60%",
-        onEnter: () => gsap.to("body", { backgroundColor: color, duration: 1.0, ease: "power2.inOut" }),
-        onEnterBack: () => gsap.to("body", { backgroundColor: color, duration: 1.0, ease: "power2.inOut" })
+// Sync GSAP with Lenis
+gsap.ticker.add((time) => {
+    lenis.raf(time * 1000);
+});
+
+// --- Animations ---
+
+// Hero Intro Timeline
+const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+tl.to('body', { className: "-=is-loading", duration: 0 })
+  .from(".nav-bar", { y: -20, opacity: 0, duration: 1 })
+  .from(".tag-pill", { scale: 0.8, opacity: 0, duration: 0.8 }, "-=0.5")
+  .from(".hero-title", { y: 40, opacity: 0, duration: 1.2 }, "-=0.6")
+  .from(".hero-desc", { y: 20, opacity: 0, duration: 1 }, "-=0.8")
+  .from(".hero-btns", { y: 20, opacity: 0, duration: 1 }, "-=0.8")
+  .from(".hero-visual", { y: 80, opacity: 0, duration: 1.5, ease: "power4.out" }, "-=1")
+  .from(".trust-badges", { opacity: 0, duration: 1 }, "-=1");
+
+// Navbar Scroll Frosted Effect
+window.addEventListener('scroll', () => {
+    const nav = document.querySelector('.nav-bar');
+    if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+    } else {
+        nav.classList.remove('scrolled');
+    }
+});
+
+// General Fade Up Elements
+gsap.utils.toArray('.feature-card, .trust-box').forEach(element => {
+    gsap.from(element, {
+        scrollTrigger: {
+            trigger: element,
+            start: "top 90%",
+        },
+        y: 40,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out"
     });
 });
 
-// --- Toggle Switch Logic ---
-function initToggle() {
-    const toggleBtns = document.querySelectorAll('.toggle-btn');
-    const toggleBg = document.querySelector('.toggle-bg');
-    const views = document.querySelectorAll('.use-case-view');
-
-    function updateToggle(btn) {
-        // Calculate position
-        const parentRect = btn.parentElement.getBoundingClientRect();
-        const btnRect = btn.getBoundingClientRect();
-        
-        const width = btnRect.width;
-        const left = btnRect.left - parentRect.left;
-
-        gsap.to(toggleBg, { 
-            width: width, 
-            x: left, 
-            duration: 0.4, 
-            ease: "elastic.out(1, 0.6)" 
-        });
-
-        // Content Switching
-        const targetId = btn.getAttribute('data-target');
-        views.forEach(view => {
-            if(view.id === targetId) {
-                view.classList.add('active');
-                gsap.fromTo(view.children, 
-                    { y: 15, opacity: 0 }, 
-                    { y: 0, opacity: 1, stagger: 0.05, duration: 0.4, ease: "power2.out" }
-                );
-            } else {
-                view.classList.remove('active');
-            }
-        });
-        
-        // Button Styles
-        toggleBtns.forEach(b => {
-             b.classList.remove('active');
-             b.style.color = 'var(--text-muted)';
-        });
-        btn.classList.add('active');
-        btn.style.color = '#fff';
-    }
-
-    toggleBtns.forEach(btn => {
-        btn.addEventListener('click', () => updateToggle(btn));
-    });
-
-    // Init state
-    const activeBtn = document.querySelector('.toggle-btn.active');
-    if(activeBtn) {
-        setTimeout(() => updateToggle(activeBtn), 100);
-    }
-}
-initToggle();
-
-// --- Scroll Telling (Sticky Logic) ---
-const steps = document.querySelectorAll('.scroll-item');
-const panes = document.querySelectorAll('.visual-card-frame');
+// Scroll Telling Logic (Sticky Section)
+const steps = document.querySelectorAll('.scroll-step');
+const visuals = document.querySelectorAll('.stage-item');
 
 steps.forEach((step, i) => {
     ScrollTrigger.create({
         trigger: step,
-        start: "top center", 
+        start: "top center",
         end: "bottom center",
-        onToggle: (self) => {
-            if (self.isActive) {
-                step.classList.add('active');
-                updatePane(i);
-            } else {
-                step.classList.remove('active');
-            }
-        }
+        onEnter: () => updateStage(i),
+        onEnterBack: () => updateStage(i),
+        toggleClass: { targets: step, className: "active" }
     });
 });
 
-function updatePane(index) {
-    panes.forEach((pane, i) => {
+function updateStage(index) {
+    visuals.forEach((vis, i) => {
         if (i === index) {
-            pane.classList.add('active');
+            vis.classList.add('active');
         } else {
-            pane.classList.remove('active');
+            vis.classList.remove('active');
         }
     });
 }
 
-// --- Reveal Animations for New Sections ---
-// Hero
-gsap.from(".hero-content > *", { y: 30, opacity: 0, duration: 1, stagger: 0.2, ease: "power2.out", delay: 0.5 });
-// Cards
-gsap.utils.toArray('.journey-card, .eth-card').forEach(card => {
-    gsap.from(card, {
-        scrollTrigger: {
-            trigger: card,
-            start: "top 85%",
-        },
-        y: 40,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power2.out"
-    });
-});
-
-// Banner Reveal
-gsap.from('.banner-teal', {
-    scrollTrigger: { trigger: '.banner-teal', start: "top 80%" },
-    scale: 0.95, opacity: 0, duration: 0.8, ease: "back.out(1.5)"
-});
-
-
-// --- Gemini AI Demo (Sentinel Refusal Logic) ---
+// --- Gemini AI Demo Logic ---
 const apiKey = process.env.API_KEY;
 const ai = new GoogleGenAI({ apiKey: apiKey });
 const aiBtn = document.getElementById('aiBtn');
 const aiInput = document.getElementById('aiInput');
 const aiOutput = document.getElementById('aiOutput');
 
-async function runDemo() {
-    const q = aiInput.value;
-    if(!q) return;
-    
-    aiOutput.innerHTML = "<em>Accessing medical literature...</em>";
-    aiBtn.style.opacity = "0.5";
-    
+async function runHealthDemo() {
+    const query = aiInput.value.trim();
+    if (!query) return;
+
+    aiOutput.innerHTML = '<span style="color:var(--coral)">Consulting CareGene memory...</span>';
+    aiBtn.disabled = true;
+
     try {
         const context = `
-            Context: The user is a parent of a child with KCNQ2-related epilepsy.
-            The user asks about long-term prognosis.
-            Medical literature is currently limited for specific variants.
-            Task: Provide a "Sentinel Refusal" response. State that you cannot predict the clinical trajectory with certainty due to data gaps. Be honest. Do not hallucinate.
-            Question: ${q}
+            Patient: Emma (Age 6). 
+            Diagnosed: KCNQ2-related epilepsy (Variant c.637C>T).
+            Medication History: Started Keppra 500mg (Oct), increased to 750mg (Nov 12).
+            Recent Observations: 
+            - "Seizures reduced significantly after dosage increase."
+            - "Sleep improved."
+            
+            Task: Answer the parent's question based on this data. Be empathetic but factual. Max 2 sentences.
         `;
-        
+
         const response = await ai.models.generateContent({
             model: 'gemini-3-flash-preview',
-            contents: context
+            contents: `Context: ${context}. Question: ${query}`,
         });
 
         const text = response.text;
-        aiOutput.innerHTML = "";
         
+        // Typewriter Effect
+        aiOutput.textContent = "";
         gsap.to(aiOutput, {
             text: text,
-            duration: 2,
+            duration: 2.5,
             ease: "none"
         });
-        
-    } catch(e) {
-        aiOutput.textContent = "Demo unavailable. Check configuration.";
+
+    } catch (e) {
+        console.error(e);
+        aiOutput.textContent = "Demo unavailable. Please check API key.";
     } finally {
-        aiBtn.style.opacity = "1";
+        aiBtn.disabled = false;
     }
 }
 
-if(aiBtn) {
-    aiBtn.addEventListener('click', runDemo);
-    aiInput.addEventListener('keypress', (e) => {
-        if(e.key === 'Enter') runDemo();
-    });
-}
+aiBtn.addEventListener('click', runHealthDemo);
+aiInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') runHealthDemo();
+});
 
-// Parallax for Hero
-document.querySelector('.hero').addEventListener('mousemove', (e) => {
-    if(window.innerWidth < 960) return;
-    const layer = document.querySelector('.app-mockup');
-    const x = (e.clientX / window.innerWidth - 0.5) * 2;
-    const y = (e.clientY / window.innerHeight - 0.5) * 2;
-    
-    gsap.to(layer, {
-        x: x * 15,
-        y: y * 15,
-        rotationY: x * 5,
-        duration: 0.5,
+// Custom Cursor (Subtle Glow Follow)
+const cursorGlow = document.querySelector('.cursor-glow');
+window.addEventListener('mousemove', (e) => {
+    gsap.to(cursorGlow, {
+        x: e.clientX,
+        y: e.clientY,
+        duration: 1.5,
         ease: "power2.out"
     });
 });
