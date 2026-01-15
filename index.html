@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CareGene | The Clinical Memory</title>
     
-    <!-- Fonts: Fraunces (Editorial Serif) + Inter (Clean Sans) -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -13,14 +13,13 @@
     <!-- Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     
-    <!-- Libraries: Lenis (Scroll) + GSAP (Animation) -->
+    <!-- Libraries -->
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.29/dist/lenis.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
 
-    <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
 
     <!-- Gemini Import Map -->
@@ -35,27 +34,20 @@
 </head>
 <body class="light-theme">
 
-    <!-- Navigation -->
     <nav class="nav-bar">
         <div class="nav-container">
             <div class="brand">
-                <div class="brand-mark">
-                    <i data-lucide="dna"></i>
-                </div>
+                <div class="brand-mark"><i data-lucide="dna"></i></div>
                 <span class="brand-name">CareGene</span>
             </div>
-            
             <div class="nav-center">
-                <a href="#product" class="nav-link hover-magnet">Product</a>
-                <a href="#features" class="nav-link hover-magnet">Features</a>
-                <a href="#trust" class="nav-link hover-magnet">Trust</a>
+                <a href="#how-it-works" class="nav-link">How it Works</a>
+                <a href="#benefits" class="nav-link">Benefits</a>
+                <a href="#trust" class="nav-link">Safety</a>
             </div>
-
             <div class="nav-right">
-                <a href="#" class="nav-login hover-magnet">Sign In</a>
-                <button class="btn-primary hover-magnet">
-                    <span>Get Started</span>
-                </button>
+                <a href="#" class="nav-login">Sign In</a>
+                <button class="btn-primary small">Get Started</button>
             </div>
         </div>
     </nav>
@@ -64,276 +56,283 @@
         
         <!-- Hero Section -->
         <section class="hero">
-            <div class="hero-bg-pattern"></div>
-            <div class="container hero-layout">
-                <div class="hero-text">
-                    <div class="badge-pill fade-in">
-                        <span class="status-dot"></span>
-                        Built by Rare Families
-                    </div>
-                    <h1 class="hero-headline char-split">
-                        The Medical Memory <br>
-                        <span class="accent-text">That Never Forgets.</span>
-                    </h1>
-                    <p class="hero-sub fade-in">
-                        A clinical operating system for rare disease families. We connect fragmented records, track subtle changes, and turn daily noise into medical evidence.
-                    </p>
-                    
-                    <div class="hero-actions fade-in">
-                        <button class="btn-primary large hover-magnet">
-                            <i data-lucide="mic"></i> <span>Start Memory</span>
-                        </button>
-                        <button class="btn-secondary large hover-magnet">
-                            <span>See Demo</span>
-                        </button>
-                    </div>
-
-                    <div class="trust-row fade-in">
-                        <div class="trust-item"><i data-lucide="shield-check"></i> HIPAA Compliant</div>
-                        <div class="trust-item"><i data-lucide="lock"></i> End-to-End Encrypted</div>
-                    </div>
+            <div class="hero-bg"></div>
+            <div class="container hero-content">
+                <div class="badge-pill fade-in">
+                    <span class="status-dot"></span> Built by Rare Families
+                </div>
+                <h1 class="hero-title char-split">
+                    Your Child's <br>
+                    <span class="serif-italic accent">Medical Memory.</span>
+                </h1>
+                <p class="hero-desc fade-in">
+                    Built for the rare genetic journey. A voice-first clinical memory that connects scattered records, captures daily changes, and creates evidence-backed clarity for every appointment.
+                </p>
+                
+                <div class="hero-actions fade-in">
+                    <button class="btn-primary large hover-magnet">
+                        <i data-lucide="mic"></i> Start Clinical Memory
+                    </button>
+                    <button class="btn-secondary large hover-magnet">
+                        See how it works
+                    </button>
                 </div>
 
-                <!-- Interactive Parallax Visual -->
-                <div class="hero-visual parallax-container">
-                    <div class="phone-frame parallax-layer" data-depth="0.05">
-                        <div class="screen">
-                            <div class="app-header">
-                                <span>Timeline</span>
-                                <i data-lucide="more-horizontal"></i>
+                <div class="hero-visual-stage parallax-container">
+                    <div class="app-mockup parallax-layer" data-depth="0.04">
+                        <div class="mockup-header">
+                            <span class="time">9:41</span>
+                            <div class="status-icons"><i data-lucide="wifi"></i><i data-lucide="battery"></i></div>
+                        </div>
+                        <div class="mockup-body">
+                            <!-- Dynamic Content Feed -->
+                            <div class="chat-bubble left">
+                                <p>What does this mean for Emma's development?</p>
                             </div>
-                            <div class="feed-item alert">
-                                <div class="feed-icon red"><i data-lucide="alert-circle"></i></div>
-                                <div class="feed-content">
-                                    <h4>Contradiction Alert</h4>
-                                    <p>Doctor note says "stable", but daily logs show 40% increase in episodes.</p>
+                            <div class="chat-bubble right">
+                                <p>Motor development plateaued after 24 months despite PT. This timing aligns with known MECP2 trajectories.</p>
+                                <div class="source-tag"><i data-lucide="file-text"></i> Dr. Chen • Nov 2025</div>
+                            </div>
+                            <div class="card-alert">
+                                <div class="alert-icon"><i data-lucide="activity"></i></div>
+                                <div>
+                                    <strong>Trend Detected</strong>
+                                    <span>Seizure frequency +15% this week</span>
                                 </div>
-                            </div>
-                            <div class="feed-item">
-                                <div class="feed-icon blue"><i data-lucide="file-text"></i></div>
-                                <div class="feed-content">
-                                    <h4>New Lab Result</h4>
-                                    <p>KCNQ2 Variant Pathogenicity confirmed.</p>
-                                </div>
-                            </div>
-                            <div class="fab-mic">
-                                <i data-lucide="mic"></i>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Floating Cards -->
-                    <div class="float-card card-1 parallax-layer" data-depth="0.15">
-                        <div class="icon-sq"><i data-lucide="activity"></i></div>
-                        <div>
-                            <strong>Vitals Tracked</strong>
-                            <span>Heart rate variability</span>
+                        <div class="mockup-footer">
+                            <div class="mic-button"><i data-lucide="mic"></i></div>
                         </div>
                     </div>
                     
-                    <div class="float-card card-2 parallax-layer" data-depth="0.2">
-                        <div class="icon-sq"><i data-lucide="brain-circuit"></i></div>
-                        <div>
-                            <strong>Pattern Detected</strong>
-                            <span>Sleep correlation found</span>
+                    <!-- Floating Widgets -->
+                    <div class="float-widget w1 parallax-layer" data-depth="0.1">
+                        <div class="icon-box"><i data-lucide="shield-check"></i></div>
+                        <div class="text-box">
+                            <strong>HIPAA Ready</strong>
+                            <span>AES-256 Encrypted</span>
+                        </div>
+                    </div>
+                    <div class="float-widget w2 parallax-layer" data-depth="0.15">
+                        <div class="icon-box blue"><i data-lucide="files"></i></div>
+                        <div class="text-box">
+                            <strong>Records Sync</strong>
+                            <span>24 PDFs Indexed</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Problem Section -->
-        <section id="product" class="section-padding bg-soft">
+        <!-- Use Case Toggle Section (The "Missing" Section) -->
+        <section id="benefits" class="use-case-section">
             <div class="container">
                 <div class="section-header text-center">
-                    <h2 class="title-lg">Medical systems see snapshots. <br> <span class="accent-text">CareGene sees the story.</span></h2>
-                    <p class="text-body max-w-md mx-auto">Rare conditions are defined by change over time. Don't let valuable context get lost in the gaps between appointments.</p>
+                    <h2 class="title-md">One Platform. <span class="serif-italic accent">Two Superpowers.</span></h2>
+                    <p class="desc-sm">Designed for the daily grind and the high-stakes clinical visit.</p>
                 </div>
 
-                <div class="grid-3">
-                    <div class="feature-box hover-lift">
-                        <div class="box-icon"><i data-lucide="camera-off"></i></div>
-                        <h3>The Snapshot Trap</h3>
-                        <p>Specialists only see your child for 15 minutes every 6 months. They miss the daily reality.</p>
+                <!-- Tabs -->
+                <div class="toggle-switch">
+                    <button class="toggle-btn active" data-target="families">
+                        <i data-lucide="home"></i> For Families
+                    </button>
+                    <button class="toggle-btn" data-target="appointments">
+                        <i data-lucide="stethoscope"></i> For Every Appointment
+                    </button>
+                    <div class="toggle-bg"></div>
+                </div>
+
+                <!-- Content Area -->
+                <div class="use-case-content">
+                    
+                    <!-- View: For Families -->
+                    <div class="use-case-view active" id="families">
+                        <div class="uc-grid">
+                            <div class="uc-card">
+                                <div class="uc-icon"><i data-lucide="brain-circuit"></i></div>
+                                <h3>A living medical memory</h3>
+                                <p>Your child's records and daily observations are captured by voice or text and connected over time. No more "I forgot to write that down."</p>
+                            </div>
+                            <div class="uc-card">
+                                <div class="uc-icon"><i data-lucide="search"></i></div>
+                                <h3>Automatic change detection</h3>
+                                <p>See exactly what changed between visits. We track labs, medications, and therapies without you re-reading reports.</p>
+                            </div>
+                            <div class="uc-card">
+                                <div class="uc-icon"><i data-lucide="check-circle-2"></i></div>
+                                <h3>Evidence you can verify</h3>
+                                <p>Every summary links back to the original source, with uncertainty clearly marked. No hallucinations.</p>
+                            </div>
+                        </div>
+                        <div class="uc-visual families-vis">
+                            <div class="voice-capture-ui">
+                                <div class="vc-wave">
+                                    <span></span><span></span><span></span><span></span><span></span>
+                                </div>
+                                <p class="vc-text">"She slept through the night for the first time in 3 weeks..."</p>
+                                <div class="vc-badge"><i data-lucide="check"></i> Logged to Memory</div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="feature-box hover-lift highlight">
-                        <div class="box-icon"><i data-lucide="repeat"></i></div>
-                        <h3>The Narrative Tax</h3>
-                        <p>Stop repeating your trauma. Build a queryable memory that answers doctor's questions for you.</p>
+
+                    <!-- View: For Appointments -->
+                    <div class="use-case-view" id="appointments">
+                        <div class="uc-grid">
+                            <div class="uc-card highlight">
+                                <div class="uc-icon"><i data-lucide="file-text"></i></div>
+                                <h3>The CareGene Brief</h3>
+                                <p>A one-page, specialist-ready summary designed to be reviewed in under 60 seconds. Hand it to the doctor.</p>
+                            </div>
+                            <div class="uc-card">
+                                <div class="uc-icon"><i data-lucide="history"></i></div>
+                                <h3>What changed since last visit</h3>
+                                <p>Clear highlights across growth, symptoms, labs, and treatments between appointments.</p>
+                            </div>
+                            <div class="uc-card">
+                                <div class="uc-icon"><i data-lucide="list-todo"></i></div>
+                                <h3>Focused questions & next steps</h3>
+                                <p>Prioritized discussion points and follow-ups so nothing falls through the cracks.</p>
+                            </div>
+                        </div>
+                        <div class="uc-visual appointment-vis">
+                            <div class="doc-preview">
+                                <div class="doc-header">
+                                    <div class="doc-title">Clinical Brief: Emma S.</div>
+                                    <div class="doc-date">Generated: Today</div>
+                                </div>
+                                <div class="doc-section">
+                                    <div class="doc-line w-70"></div>
+                                    <div class="doc-line w-90"></div>
+                                </div>
+                                <div class="doc-section warning">
+                                    <div class="doc-label">⚠️ NEW SYMPTOMS</div>
+                                    <div class="doc-line w-80"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="feature-box hover-lift">
-                        <div class="box-icon"><i data-lucide="files"></i></div>
-                        <h3>Data Silos</h3>
-                        <p>Genetics in the portal, therapy in a binder, seizures in a note app. We bring it all together.</p>
-                    </div>
+
                 </div>
             </div>
         </section>
 
-        <!-- Seamless Scroll-Telling Section -->
-        <section id="features" class="scroll-section">
-            <div class="container sticky-wrapper">
-                
-                <!-- Scrolling Text -->
-                <div class="text-col">
-                    <div class="scroll-step" data-index="0">
-                        <div class="step-line"></div>
-                        <span class="step-label">01 — Connect</span>
-                        <h2>The Evidence-Linked <br> Records Hub</h2>
-                        <p>Drag and drop 500-page PDF records. We extract structured data, index every value, and create a searchable clinical knowledge graph.</p>
-                        <ul class="check-list">
-                            <li><i data-lucide="check"></i> Instant OCR & Indexing</li>
-                            <li><i data-lucide="check"></i> Redact Sensitive Data</li>
-                        </ul>
+        <!-- Scroll-Telling Section -->
+        <section id="how-it-works" class="scroll-telling">
+            <div class="container sticky-layout">
+                <div class="scroll-text">
+                    <div class="scroll-item" data-step="0">
+                        <span class="step-num">01</span>
+                        <h2>Connect the Dots.</h2>
+                        <p>Upload PDFs, connect portals, or just take photos of paper records. We extract every value and build a structured timeline.</p>
                     </div>
-
-                    <div class="scroll-step" data-index="1">
-                        <div class="step-line"></div>
-                        <span class="step-label">02 — Analyze</span>
-                        <h2>The Delta Engine <br> (Timeline Analysis)</h2>
-                        <p>Our AI doesn't just store data; it looks for *change*. It flags medication conflicts, tracks symptom progression, and finds correlations you might miss.</p>
+                    <div class="scroll-item" data-step="1">
+                        <span class="step-num">02</span>
+                        <h2>Find the Pattern.</h2>
+                        <p>Our Delta Engine analyzes the timeline to find correlations. "Did the seizure increase happen before or after the med change?"</p>
                         
-                        <!-- Interactive AI Demo -->
-                        <div class="ai-interaction">
-                            <div class="ai-label">
-                                <i data-lucide="sparkles"></i> Ask CareGene
+                        <!-- AI Demo -->
+                        <div class="ai-mini-demo">
+                            <div class="ai-label">Ask CareGene:</div>
+                            <div class="ai-input-row">
+                                <input type="text" id="aiInput" placeholder="Did sleep improve after Keppra?">
+                                <button id="aiBtn"><i data-lucide="arrow-right"></i></button>
                             </div>
-                            <div class="ai-input-group">
-                                <input type="text" id="aiInput" placeholder="Has sleep improved since starting Keppra?">
-                                <button id="aiBtn" class="hover-magnet"><i data-lucide="arrow-right"></i></button>
-                            </div>
-                            <div id="aiOutput" class="ai-response"></div>
+                            <div id="aiOutput" class="ai-typing"></div>
                         </div>
                     </div>
-
-                    <div class="scroll-step" data-index="2">
-                        <div class="step-line"></div>
-                        <span class="step-label">03 — Capture</span>
-                        <h2>The Ambient <br> Clinical Diary</h2>
-                        <p>No more spreadsheets. Just talk. "Hey CareGene, she had a drop seizure at 2 PM." We log it, timestamp it, and add it to the clinical graph.</p>
+                    <div class="scroll-item" data-step="2">
+                        <span class="step-num">03</span>
+                        <h2>Generate the Brief.</h2>
+                        <p>Before your next Neuro visit, click one button to generate a "CareGene Brief." It highlights exactly what the doctor needs to know.</p>
                     </div>
                 </div>
 
-                <!-- Sticky Visuals -->
-                <div class="visual-col">
-                    <div class="visual-stage">
-                        <!-- Visual 1: Records -->
-                        <div class="stage-card" id="vis-0">
-                            <div class="upload-ui">
-                                <div class="upload-icon-lg"><i data-lucide="upload-cloud"></i></div>
-                                <div class="upload-text">Processing Clinical Records...</div>
-                                <div class="file-stack">
-                                    <div class="file-card f1"><i data-lucide="file"></i> Genetics_2024.pdf</div>
-                                    <div class="file-card f2"><i data-lucide="file"></i> Neuro_Visit.pdf</div>
-                                    <div class="file-card f3"><i data-lucide="file-check"></i> <span>Analysis Complete</span></div>
+                <div class="scroll-visual">
+                    <div class="glass-pane">
+                        <!-- Visual 0: Connect -->
+                        <div class="pane-content active" id="pane-0">
+                            <div class="upload-stack">
+                                <div class="file f1"><i data-lucide="file"></i> Genetics.pdf</div>
+                                <div class="file f2"><i data-lucide="file"></i> Labs_Oct.pdf</div>
+                                <div class="file f3"><i data-lucide="file"></i> IEP_Plan.pdf</div>
+                                <div class="process-circle">
+                                    <svg viewBox="0 0 100 100">
+                                        <circle cx="50" cy="50" r="45" stroke="#eee" stroke-width="4" fill="none"/>
+                                        <circle cx="50" cy="50" r="45" stroke="#ff6b4a" stroke-width="4" fill="none" stroke-dasharray="283" stroke-dashoffset="100" class="progress"/>
+                                    </svg>
+                                    <i data-lucide="cpu"></i>
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Visual 2: Timeline -->
-                        <div class="stage-card" id="vis-1">
-                            <div class="timeline-view">
-                                <div class="tl-event warning">
-                                    <div class="tl-dot"></div>
-                                    <div class="tl-card">
-                                        <div class="tag">MEDICATION CHANGE</div>
-                                        <strong>Keppra increased to 750mg</strong>
-                                        <div class="tl-meta">Nov 12 • Dr. Chen</div>
-                                    </div>
-                                </div>
-                                <div class="tl-event success">
-                                    <div class="tl-dot"></div>
-                                    <div class="tl-card">
-                                        <div class="tag">OBSERVATION</div>
-                                        <strong>Sleep duration +2hrs</strong>
-                                        <div class="tl-meta">Nov 15 • Ambient Log</div>
-                                    </div>
-                                </div>
+                        
+                        <!-- Visual 1: Pattern -->
+                        <div class="pane-content" id="pane-1">
+                            <div class="graph-ui">
+                                <div class="graph-bar" style="height: 40%"></div>
+                                <div class="graph-bar" style="height: 60%"></div>
+                                <div class="graph-bar warning" style="height: 85%"></div>
+                                <div class="graph-bar" style="height: 50%"></div>
+                                <div class="graph-line"></div>
+                                <div class="graph-tag">Spike Detected</div>
                             </div>
                         </div>
 
-                        <!-- Visual 3: Voice -->
-                        <div class="stage-card" id="vis-2">
-                            <div class="voice-view">
-                                <div class="voice-orb">
-                                    <div class="orb-core"></div>
-                                    <div class="orb-ring r1"></div>
-                                    <div class="orb-ring r2"></div>
-                                </div>
-                                <div class="voice-transcript">
-                                    "Noticed a slight tremor in the left hand during breakfast..."
-                                </div>
-                                <div class="audio-wave">
-                                    <span></span><span></span><span></span><span></span><span></span>
-                                </div>
+                        <!-- Visual 2: Brief -->
+                        <div class="pane-content" id="pane-2">
+                            <div class="brief-ui">
+                                <div class="brief-icon"><i data-lucide="file-check-2"></i></div>
+                                <h3>Ready to Print</h3>
+                                <button class="btn-primary small">Download PDF</button>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
 
         <!-- Trust Section -->
-        <section id="trust" class="section-padding">
-            <div class="container">
-                <div class="section-header text-center">
-                    <span class="step-label">The Sentinel Moat</span>
-                    <h2 class="title-lg">Ethical Intelligence. <br> Radical Privacy.</h2>
-                </div>
-
+        <section id="trust" class="trust-section">
+            <div class="container text-center">
+                <h2 class="title-md">The Sentinel Moat</h2>
+                <p class="desc-sm">Ethical Intelligence & Radical Privacy.</p>
+                
                 <div class="trust-grid">
-                    <div class="trust-panel t-1 hover-lift">
-                        <i data-lucide="shield-alert" class="t-icon"></i>
+                    <div class="trust-card">
+                        <i data-lucide="shield-alert"></i>
                         <h3>The Sentinel Refusal</h3>
-                        <p>Most AI guesses. We don't. If the data is inconclusive, CareGene explicitly refuses to hallucinate an answer. Safety first.</p>
+                        <p>If data is inconclusive, we explicitly refuse to answer. No guessing.</p>
                     </div>
-                    <div class="trust-panel t-2 hover-lift">
-                        <i data-lucide="server-off" class="t-icon"></i>
+                    <div class="trust-card">
+                        <i data-lucide="server-off"></i>
                         <h3>Zero Training</h3>
-                        <p>Your child's medical data is isolated. We never use your records to train our global models. It stays yours.</p>
+                        <p>We never use your data to train public models. It stays yours.</p>
                     </div>
-                    <div class="trust-panel t-3 hover-lift">
-                        <i data-lucide="key" class="t-icon"></i>
-                        <h3>Bring Your Own Key</h3>
-                        <p>For ultimate privacy, enterprises and hospitals can manage their own encryption keys.</p>
+                    <div class="trust-card">
+                        <i data-lucide="trash-2"></i>
+                        <h3>Right to Delete</h3>
+                        <p>Delete a record, and it's scrubbed from the graph instantly.</p>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA -->
-        <section class="cta-wrapper">
-            <div class="container">
-                <div class="cta-box">
-                    <h2 class="title-lg text-white">From Recall to Insight.</h2>
-                    <p class="text-white-dim">Stop being a walking filing cabinet. Start being a parent again.</p>
-                    <button class="btn-primary large white hover-magnet">
-                        Build Your Memory <i data-lucide="arrow-right"></i>
-                    </button>
-                    <p class="cta-note">HIPAA Environment Launching Q1 2026</p>
                 </div>
             </div>
         </section>
 
         <!-- Footer -->
-        <footer class="footer">
-            <div class="container">
-                <div class="footer-row">
-                    <div class="f-brand">
-                        <div class="brand">
-                            <i data-lucide="dna"></i> <span>CareGene</span>
-                        </div>
-                        <p>Built for the rare journey.</p>
+        <footer>
+            <div class="container footer-content">
+                <div class="f-left">
+                    <div class="brand">
+                        <div class="brand-mark"><i data-lucide="dna"></i></div>
+                        <span class="brand-name">CareGene</span>
                     </div>
-                    <div class="f-links">
-                        <a href="#">Product</a>
-                        <a href="#">Security</a>
-                        <a href="#">Contact</a>
-                    </div>
-                    <div class="f-copy">
-                        &copy; 2026 CareGene Inc.
-                    </div>
+                    <p>Copyright © 2026 CareGene Pte Ltd. All rights reserved.</p>
+                </div>
+                <div class="f-right">
+                    <a href="#">Product</a>
+                    <a href="#">For Families</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Privacy</a>
                 </div>
             </div>
         </footer>
