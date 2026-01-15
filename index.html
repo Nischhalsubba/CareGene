@@ -41,9 +41,9 @@
                 <span class="brand-name">CareGene</span>
             </div>
             <div class="nav-center">
+                <a href="#benefits" class="nav-link">Features</a>
                 <a href="#how-it-works" class="nav-link">How it Works</a>
-                <a href="#benefits" class="nav-link">Benefits</a>
-                <a href="#trust" class="nav-link">Safety</a>
+                <a href="#trust" class="nav-link">Trust</a>
             </div>
             <div class="nav-right">
                 <a href="#" class="nav-login">Sign In</a>
@@ -54,9 +54,8 @@
 
     <main>
         
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-bg"></div>
+        <!-- Hero Section (Background: Off-White) -->
+        <section class="hero" data-color="#fcfbf9">
             <div class="container hero-content">
                 <div class="badge-pill fade-in">
                     <span class="status-dot"></span> Built by Rare Families
@@ -93,16 +92,9 @@
                                 <p>Motor development plateaued after 24 months despite PT. This timing aligns with known MECP2 trajectories.</p>
                                 <div class="source-tag"><i data-lucide="file-text"></i> Dr. Chen • Nov 2025</div>
                             </div>
-                            <div class="card-alert">
-                                <div class="alert-icon"><i data-lucide="activity"></i></div>
-                                <div>
-                                    <strong>Trend Detected</strong>
-                                    <span>Seizure frequency +15% this week</span>
-                                </div>
-                            </div>
                         </div>
                         <div class="mockup-footer">
-                            <div class="mic-button"><i data-lucide="mic"></i></div>
+                            <div style="width: 60px; height: 5px; background: #eee; border-radius: 10px;"></div>
                         </div>
                     </div>
                     
@@ -125,23 +117,25 @@
             </div>
         </section>
 
-        <!-- Use Case Toggle Section (The "Missing" Section) -->
-        <section id="benefits" class="use-case-section">
+        <!-- Use Case Toggle Section (Background: Soft Gray) -->
+        <section id="benefits" class="use-case-section" data-color="#f3f4f6">
             <div class="container">
                 <div class="section-header text-center">
-                    <h2 class="title-md">One Platform. <span class="serif-italic accent">Two Superpowers.</span></h2>
+                    <h2 class="title-md">One Platform. <br> <span class="serif-italic accent">Two Superpowers.</span></h2>
                     <p class="desc-sm">Designed for the daily grind and the high-stakes clinical visit.</p>
                 </div>
 
                 <!-- Tabs -->
-                <div class="toggle-switch">
-                    <button class="toggle-btn active" data-target="families">
-                        <i data-lucide="home"></i> For Families
-                    </button>
-                    <button class="toggle-btn" data-target="appointments">
-                        <i data-lucide="stethoscope"></i> For Every Appointment
-                    </button>
-                    <div class="toggle-bg"></div>
+                <div class="text-center">
+                    <div class="toggle-switch">
+                        <div class="toggle-bg"></div>
+                        <button class="toggle-btn active" data-target="families">
+                            <i data-lucide="home"></i> For Families
+                        </button>
+                        <button class="toggle-btn" data-target="appointments">
+                            <i data-lucide="stethoscope"></i> For Every Appointment
+                        </button>
+                    </div>
                 </div>
 
                 <!-- Content Area -->
@@ -153,12 +147,12 @@
                             <div class="uc-card">
                                 <div class="uc-icon"><i data-lucide="brain-circuit"></i></div>
                                 <h3>A living medical memory</h3>
-                                <p>Your child's records and daily observations are captured by voice or text and connected over time. No more "I forgot to write that down."</p>
+                                <p>Your child's records and daily observations are captured by voice or text and connected over time.</p>
                             </div>
                             <div class="uc-card">
                                 <div class="uc-icon"><i data-lucide="search"></i></div>
                                 <h3>Automatic change detection</h3>
-                                <p>See exactly what changed between visits. We track labs, medications, and therapies without you re-reading reports.</p>
+                                <p>See exactly what changed between visits. We track labs, medications, and therapies automatically.</p>
                             </div>
                             <div class="uc-card">
                                 <div class="uc-icon"><i data-lucide="check-circle-2"></i></div>
@@ -166,14 +160,8 @@
                                 <p>Every summary links back to the original source, with uncertainty clearly marked. No hallucinations.</p>
                             </div>
                         </div>
-                        <div class="uc-visual families-vis">
-                            <div class="voice-capture-ui">
-                                <div class="vc-wave">
-                                    <span></span><span></span><span></span><span></span><span></span>
-                                </div>
-                                <p class="vc-text">"She slept through the night for the first time in 3 weeks..."</p>
-                                <div class="vc-badge"><i data-lucide="check"></i> Logged to Memory</div>
-                            </div>
+                        <div class="uc-visual families-vis" style="background: #fff; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.05); overflow: hidden;">
+                           <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Family Care" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9;">
                         </div>
                     </div>
 
@@ -183,7 +171,7 @@
                             <div class="uc-card highlight">
                                 <div class="uc-icon"><i data-lucide="file-text"></i></div>
                                 <h3>The CareGene Brief</h3>
-                                <p>A one-page, specialist-ready summary designed to be reviewed in under 60 seconds. Hand it to the doctor.</p>
+                                <p>A one-page, specialist-ready summary designed to be reviewed in under 60 seconds.</p>
                             </div>
                             <div class="uc-card">
                                 <div class="uc-icon"><i data-lucide="history"></i></div>
@@ -192,11 +180,11 @@
                             </div>
                             <div class="uc-card">
                                 <div class="uc-icon"><i data-lucide="list-todo"></i></div>
-                                <h3>Focused questions & next steps</h3>
+                                <h3>Focused questions</h3>
                                 <p>Prioritized discussion points and follow-ups so nothing falls through the cracks.</p>
                             </div>
                         </div>
-                        <div class="uc-visual appointment-vis">
+                        <div class="uc-visual appointment-vis" style="background: #fff; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.05); display: flex; align-items: center; justify-content: center;">
                             <div class="doc-preview">
                                 <div class="doc-header">
                                     <div class="doc-title">Clinical Brief: Emma S.</div>
@@ -218,8 +206,8 @@
             </div>
         </section>
 
-        <!-- Scroll-Telling Section -->
-        <section id="how-it-works" class="scroll-telling">
+        <!-- Scroll-Telling Section (Background: Deep Dark) -->
+        <section id="how-it-works" class="scroll-telling" data-color="#111827">
             <div class="container sticky-layout">
                 <div class="scroll-text">
                     <div class="scroll-item" data-step="0">
@@ -249,6 +237,7 @@
                     </div>
                 </div>
 
+                <!-- Right Side Sticky Visuals -->
                 <div class="scroll-visual">
                     <div class="glass-pane">
                         <!-- Visual 0: Connect -->
@@ -258,11 +247,7 @@
                                 <div class="file f2"><i data-lucide="file"></i> Labs_Oct.pdf</div>
                                 <div class="file f3"><i data-lucide="file"></i> IEP_Plan.pdf</div>
                                 <div class="process-circle">
-                                    <svg viewBox="0 0 100 100">
-                                        <circle cx="50" cy="50" r="45" stroke="#eee" stroke-width="4" fill="none"/>
-                                        <circle cx="50" cy="50" r="45" stroke="#ff6b4a" stroke-width="4" fill="none" stroke-dasharray="283" stroke-dashoffset="100" class="progress"/>
-                                    </svg>
-                                    <i data-lucide="cpu"></i>
+                                    <i data-lucide="cpu" style="width: 40px; height: 40px;"></i>
                                 </div>
                             </div>
                         </div>
@@ -274,8 +259,7 @@
                                 <div class="graph-bar" style="height: 60%"></div>
                                 <div class="graph-bar warning" style="height: 85%"></div>
                                 <div class="graph-bar" style="height: 50%"></div>
-                                <div class="graph-line"></div>
-                                <div class="graph-tag">Spike Detected</div>
+                                <div class="graph-tag" style="position: absolute; top: -40px; right: 0; background: #fff; color: #000; padding: 4px 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 700;">Spike Detected</div>
                             </div>
                         </div>
 
@@ -284,7 +268,7 @@
                             <div class="brief-ui">
                                 <div class="brief-icon"><i data-lucide="file-check-2"></i></div>
                                 <h3>Ready to Print</h3>
-                                <button class="btn-primary small">Download PDF</button>
+                                <button class="btn-primary small" style="background: var(--accent); color: white;">Download PDF</button>
                             </div>
                         </div>
                     </div>
@@ -292,8 +276,8 @@
             </div>
         </section>
 
-        <!-- Trust Section -->
-        <section id="trust" class="trust-section">
+        <!-- Trust Section (Background: White) -->
+        <section id="trust" class="trust-section" data-color="#ffffff">
             <div class="container text-center">
                 <h2 class="title-md">The Sentinel Moat</h2>
                 <p class="desc-sm">Ethical Intelligence & Radical Privacy.</p>
