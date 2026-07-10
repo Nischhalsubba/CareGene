@@ -1,8 +1,11 @@
 {
-  "name": "vitalsense-ai",
+  "name": "caregene-healthcare-ai-concept",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
+  "description": "A static healthcare AI product concept for organizing rare-condition records, caregiver observations, and clinical conversations.",
+  "author": "Nischhal Raj Subba",
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -13,7 +16,6 @@
   },
   "devDependencies": {
     "@types/node": "^22.14.0",
-    
     "typescript": "~5.8.2",
     "vite": "^6.2.0"
   }
