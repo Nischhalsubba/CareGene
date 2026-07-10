@@ -1,0 +1,33 @@
+# CareGene
+
+CareGene is a static healthcare AI product concept for families navigating rare-condition journeys. The interface explores how medical records, caregiver observations, voice notes, timelines, and clinician conversations could be organized into a clearer shared memory.
+
+## Product concept
+
+- Evidence-linked records hub
+- Caregiver voice diary
+- Timeline of symptoms, medication changes, and observations
+- Contradiction and change-detection concepts
+- Privacy and uncertainty messaging
+- Appointment preparation and caregiver-clinician communication
+
+## Technical summary
+
+- Static HTML, CSS, and JavaScript
+- Vite 6 development and build workflow
+- GSAP and ScrollTrigger motion
+- Lenis smooth scrolling
+- Lucide icons
+- Experimental Google GenAI dependency
+
+## Repository
+
+https://github.com/Nischhalsubba/CareGene
+
+## Critical disclaimer
+
+CareGene is a product-design prototype. It is not a medical device, healthcare provider, diagnostic system, insurer, legal service, or emergency service. It does not provide diagnosis, treatment, medical advice, or guaranteed clinical conclusions.
+
+Any claims about HIPAA readiness, encryption, data retention, model isolation, clinical accuracy, literature scanning, or launch dates are conceptual until supported by implemented infrastructure, independent security review, legal review, and documented evidence.
+
+Do not enter real patient information or protected health information into this prototype.
