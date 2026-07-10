@@ -1,2 +1,3 @@
-// React application disabled in favor of Vanilla JS implementation (index.html + script.js)
-console.log("VitalSense AI: Running in Static Mode");
+// Compatibility entry retained for the current Vite setup.
+// The CareGene interface is implemented in index.html and script.js.
+export {};
