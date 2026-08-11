@@ -1,18 +1,15 @@
 {
-  "name": "caregene-healthcare-ai-concept",
+  "name": "caregene-healthcare-concept",
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "description": "A static healthcare AI product concept for organizing rare-condition records, caregiver observations, and clinical conversations.",
+  "description": "A static healthcare product concept for organizing rare-condition records, caregiver observations, and clinical conversations.",
   "author": "Nischhal Raj Subba",
   "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
-  },
-  "dependencies": {
-    "@google/genai": "^1.36.0"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",
