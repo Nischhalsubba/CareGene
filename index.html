@@ -1,18 +1,27 @@
 <!DOCTYPE html>
+<!--
+  File: index.html
+  Purpose: Render the CareGene single-page healthcare concept and provide the semantic structure consumed by the maintained styles and browser runtime.
+  Responsibilities:
+  - Present the product concept, feature narrative, trust messaging, interactive demonstration, and calls to action.
+  - Load the external icon/animation libraries used by the current visual experience.
+  - Load maintained project behavior through the documented root compatibility entries.
+  Maintenance: Keep IDs and class names synchronized with `src/styles/main.css` and `src/scripts/main.js`; verify all healthcare, security, and compliance claims before any real-world publication.
+-->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CareGene | The Medical Memory AI</title>
-    
+
     <!-- Fonts: Fraunces (Humanist Serif) + Inter (Clean Utility) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
+
     <!-- Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-    
+
     <!-- Smooth Scroll & Animation Libraries -->
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.29/dist/lenis.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -22,16 +31,6 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
-
-    <!-- Gemini Import Map -->
-    <script type="importmap">
-    {
-      "imports": {
-        "@google/genai": "https://esm.sh/@google/genai@^1.36.0"
-      }
-    }
-    </script>
-<link rel="stylesheet" href="/index.css">
 </head>
 <body class="is-loading">
 
@@ -45,7 +44,7 @@
                 <i data-lucide="dna" class="brand-icon"></i>
                 <span class="brand-name">CareGene</span>
             </div>
-            
+
             <div class="nav-menu">
                 <a href="#product" class="nav-item">Product</a>
                 <a href="#trust" class="nav-item">Trust</a>
@@ -62,7 +61,6 @@
     </nav>
 
     <main>
-        
         <!-- Hero Section -->
         <section class="hero">
             <div class="hero-container">
@@ -79,7 +77,7 @@
                     <p class="hero-desc fade-in">
                         A voice-first memory that connects records, tracks daily life, and detects subtle changes—so you know what to do next, even without a diagnosis.
                     </p>
-                    
+
                     <div class="hero-btns fade-in">
                         <button class="btn-primary large">
                             <i data-lucide="mic"></i> Start Clinical Memory
@@ -98,7 +96,6 @@
                 <div class="hero-visual fade-up">
                     <div class="glass-phone">
                         <div class="phone-screen">
-                            <!-- UI Content -->
                             <div class="ui-header">
                                 <span class="ui-time">9:41</span>
                                 <div class="ui-status">
@@ -127,16 +124,14 @@
                                     <p class="meta">847 sources scanned</p>
                                 </div>
                             </div>
-                            
-                            <!-- Voice Floating Action Button -->
+
                             <div class="voice-fab">
                                 <div class="wave"></div>
                                 <i data-lucide="mic"></i>
                             </div>
                         </div>
                     </div>
-                    
-                    <!-- Floating Context Cards (Parallax) -->
+
                     <div class="float-context c1">
                         <i data-lucide="file-text"></i> PDF Records Linked
                     </div>
@@ -147,7 +142,7 @@
             </div>
         </section>
 
-        <!-- Problem Section (Warm Editorial Layout) -->
+        <!-- Problem Section -->
         <section id="product" class="problem-section">
             <div class="container">
                 <div class="section-intro">
@@ -175,11 +170,9 @@
             </div>
         </section>
 
-        <!-- Scroll-Telling Section (The Core Mechanic) -->
+        <!-- Scroll-Telling Section -->
         <section class="scroll-telling" id="features">
             <div class="container sticky-container">
-                
-                <!-- Left: Text Scroller -->
                 <div class="scroller-content">
                     <div class="scroll-step" data-index="0">
                         <span class="step-num">01</span>
@@ -195,15 +188,14 @@
                         <span class="step-num">02</span>
                         <h2>The Delta Engine (Timeline)</h2>
                         <p>Automatically detect clinical shifts. Track lab trends, medication efficacy changes, and identify contradictions between specialist notes and observations.</p>
-                        
-                        <!-- AI Integration -->
+
                         <div class="ai-widget">
                             <div class="ai-label"><i data-lucide="sparkles"></i> CareGene Intelligence</div>
                             <div class="ai-box">
                                 <input type="text" id="aiInput" placeholder="How has seizure frequency changed?">
-                                <button id="aiBtn"><i data-lucide="arrow-up"></i></button>
+                                <button id="aiBtn" aria-label="Run example memory summary"><i data-lucide="arrow-up"></i></button>
                             </div>
-                            <div id="aiOutput" class="ai-result"></div>
+                            <div id="aiOutput" class="ai-result" aria-live="polite"></div>
                         </div>
                     </div>
 
@@ -214,10 +206,8 @@
                     </div>
                 </div>
 
-                <!-- Right: Visual Changing Display -->
                 <div class="visual-display">
                     <div class="display-stage">
-                        <!-- Visual 1: Document Processing -->
                         <div class="stage-item active" id="vis-0">
                             <div class="doc-stack">
                                 <div class="doc-card" style="--i:0">
@@ -241,7 +231,6 @@
                             </div>
                         </div>
 
-                        <!-- Visual 2: Timeline -->
                         <div class="stage-item" id="vis-1">
                             <div class="timeline-ui">
                                 <div class="t-event">
@@ -249,7 +238,7 @@
                                     <div class="t-content">
                                         <span class="t-date">Nov 12</span>
                                         <strong>Medication Increased</strong>
-                                        <p>Keppra -> 750mg</p>
+                                        <p>Keppra -&gt; 750mg</p>
                                     </div>
                                 </div>
                                 <div class="t-event">
@@ -263,7 +252,6 @@
                             </div>
                         </div>
 
-                        <!-- Visual 3: Voice -->
                         <div class="stage-item" id="vis-2">
                             <div class="voice-ui">
                                 <div class="voice-avatar">
@@ -277,7 +265,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
 
@@ -332,10 +319,10 @@
                     <i data-lucide="calendar-clock"></i>
                     HIPAA Environment Launching March 31, 2026
                 </div>
-                
+
                 <h2 class="title-serif large-text">Transition from Recall to Insight.</h2>
                 <p class="cta-desc">Most parents of children with rare conditions are "Walking Encyclopedias." It's time to outsource the memory so you can focus on the care.</p>
-                
+
                 <button class="btn-primary large cta-btn">
                     Build Your Child's Clinical Memory <i data-lucide="arrow-right"></i>
                 </button>
@@ -376,11 +363,9 @@
                 </div>
             </div>
         </footer>
-
     </main>
 
     <script type="module" src="script.js"></script>
     <script>lucide.createIcons();</script>
-<script type="module" src="/index.tsx"></script>
 </body>
 </html>
