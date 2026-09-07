@@ -1,5 +1,5 @@
 {
-  "name": "VitalSense AI",
-  "description": "A modern health-related AI landing page featuring a functional symptom analysis demo powered by Gemini.",
+  "name": "CareGene",
+  "description": "A product-design prototype using fictional local example data to explore rare-condition record organization, caregiver observations, and clinician-conversation preparation. It is not medical advice, diagnosis, or a deployed clinical service.",
   "requestFramePermissions": []
 }
