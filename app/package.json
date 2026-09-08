@@ -10,13 +10,14 @@
     "dev": "vite",
     "audit:claims": "node scripts/audit-prototype-claims.mjs",
     "audit:supply-chain": "node scripts/audit-supply-chain.mjs",
+    "typecheck": "tsc --noEmit",
     "build": "vite build",
-    "verify": "npm run audit:claims && npm run audit:supply-chain && npm run build",
+    "verify": "npm run audit:claims && npm run audit:supply-chain && npm run typecheck && npm run build",
     "preview": "vite preview"
   },
   "devDependencies": {
-    "@types/node": "^22.14.0",
-    "typescript": "~5.8.2",
+    "@types/node": "^26.4.1",
+    "typescript": "~7.0.2",
     "vite": "^8.2.2"
   }
 }
