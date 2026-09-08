@@ -9,8 +9,9 @@
   "scripts": {
     "dev": "vite",
     "audit:claims": "node scripts/audit-prototype-claims.mjs",
+    "audit:supply-chain": "node scripts/audit-supply-chain.mjs",
     "build": "vite build",
-    "verify": "npm run audit:claims && npm run build",
+    "verify": "npm run audit:claims && npm run audit:supply-chain && npm run build",
     "preview": "vite preview"
   },
   "devDependencies": {
