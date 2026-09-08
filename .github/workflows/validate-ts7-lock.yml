@@ -1,0 +1,54 @@
+name: Validate TypeScript 7 dependency refresh
+
+on:
+  push:
+    branches:
+      - chore/typescript-node-types-20260908
+
+permissions:
+  contents: write
+
+jobs:
+  validate:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - name: Check out dependency branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 22
+
+      - name: Refresh lockfile without lifecycle scripts
+        run: npm install --package-lock-only --ignore-scripts --no-audit --no-fund
+
+      - name: Install locked dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Audit high-severity dependencies
+        run: npm audit --audit-level=high
+
+      - name: Verify prototype safety, supply chain, TypeScript, and build
+        run: npm run verify
+
+      - name: Commit validated lockfile
+        working-directory: ${{ github.workspace }}
+        run: |
+          git add app/package-lock.json
+          git diff --cached --check
+          if git diff --cached --quiet; then
+            echo 'Lockfile already up to date.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'chore: refresh lockfile for TypeScript 7'
+          git push origin HEAD:${GITHUB_REF_NAME}
