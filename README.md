@@ -76,7 +76,7 @@ CareGene/
 
 ```bash
 cd app
-npm install
+npm ci
 npm run dev
 ```
 
