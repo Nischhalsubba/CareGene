@@ -114,3 +114,7 @@ flowchart LR
 ```
 
 More implementation and safety detail lives in [`docs/README.md`](./docs/README.md).
+
+## Maintainer review checklist
+
+Before changing critical product behavior or public claims, use the [Clinical prototype communication safety](docs/CLINICAL_PROTOTYPE_SAFETY.md) to record evidence, verification and rollback expectations.
